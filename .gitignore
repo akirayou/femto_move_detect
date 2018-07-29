@@ -1,0 +1,6 @@
+data/
+*.pgm
+*.o
+*.exe
+.vscode
+*.txt

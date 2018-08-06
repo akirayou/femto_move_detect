@@ -43,14 +43,14 @@ int kick(char *file)
         fread(jpgData, 1, jpgSize, jpgFile);
         fclose(jpgFile);
     }
-    float max_s;
-    if(detect_move(jpgData,jpgSize,&max_s)){
+    unsigned short max_s;
+    if(100<(max_s=detect_move(jpgData,jpgSize))){
         char f[100];
         //printf("%s\n",file);
-        sprintf(f, "o%d.pgm", count);
+        sprintf(f, "out/%d__%d.pgm", count,max_s);
         dumpFile(g_img, F_WIDTH, F_HEIGHT, f);
     }
-    printf("%f\n",max_s);
+    printf("%d\n",max_s);
     fflush(stdout);
     return 0;
 }
